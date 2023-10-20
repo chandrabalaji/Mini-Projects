@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          18deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(9, 23, 121, 1) 32%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        display: grid;
+        padding: 10px;
+        border: 1px solid;
+        padding: 3em;
+        border-radius: 10px;
+        box-shadow: 6px 3px 10px;
+      }
+      #watch {
+        color: white;
+        font-size: 2rem;
+        position: relative;
+        left: 50px;
+        margin-bottom: 10px;
+      }
+      #start,
+      #stop,
+      #reset {
+        background: transparent;
+        padding: 10px;
+        font-size: 1rem;
+        letter-spacing: 2px;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        border-radius: 20px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="watch"><span id="sec">00</span>:<span id="tens">00</span></div>
+      <div id="button">
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+        <button id="reset">reset</button>
+      </div>
+    </div>
+
+    <script>
+      let sec = 0;
+      let ten = 0;
+      let dtens = document.getElementById("tens");
+      let dsecds = document.getElementById("sec");
+      let start = document.getElementById("start");
+      let stopd = document.getElementById("stop");
+      let reset = document.getElementById("reset");
+      let interval; // to store value
+
+      function time() {
+        ten++;
+
+        if (ten < 9) dtens.innerHTML = "0" + ten;
+
+        if (ten > 9) dtens.innerHTML = ten;
+
+        if (ten > 99) {
+          sec++;
+          dsecds.innerHTML = "0" + sec;
+          ten = 0;
+          dtens.innerHTML = "0" + 0;
+        }
+
+        if (sec < 9) dsecds.innerHTML = "0" + sec;
+
+        if (sec > 9) dsecds.innerHTML = sec;
+      }
+
+      start.onclick = function () {
+        interval = setInterval(time);
+      };
+      stopd.onclick = function () {
+        clearInterval(interval);
+      };
+      reset.onclick = function () {
+        clearInterval(interval);
+        ten = "00";
+        sec = "00";
+        dsecds.innerHTML = sec;
+        dtens.innerHTML = ten;
+      };
+    </script>
+  </body>
+</html>

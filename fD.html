@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.fb{
+
+    text-align: center;
+    margin: 100px auto;
+border: 2px solid;
+margin-bottom: 20px;
+padding-bottom: 20px;
+
+}
+.input{
+    display: block;
+   margin: 0 auto;
+   padding: 10px;
+
+  
+}
+
+
+button{
+    margin-top: 10px;
+font-size: 20px;
+
+}
+.result{
+    margin-top: 10px;
+    font-size: 20px;
+
+}
+
+
+
+</style>
+
+
+</head>
+<body>
+    
+    <div class="fb">
+<h2>FB ints %</h2>
+
+
+<input type="text" class="input" placeholder="enter ur amt">
+<button type="submit" class="button">calc</button>
+
+
+<div class="result"></div>
+
+
+
+
+</div>
+
+
+<script>
+document.querySelector(".button").onclick = function(){
+
+ let rate = 0
+ let input= Number(document.querySelector(".input").value)
+
+// else if ladder
+//  <3 mont -5.8
+// 3 - 6 mont - 6.5%
+//  7-9 month - 6.8%
+// >=10 month - 7%
+
+
+if(input<3)
+
+  rate= 5.8
+
+  else if(input>=3 && input<=6)
+ rate = 6.5
+  else if(input>=7 && input<=9)
+  rate = 6.8
+    else 
+  rate = 7
+
+ let result = document.querySelector(".result")
+  result.innerHTML = "your inst rate is "+rate +"%"
+ 
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
+<!-- //-----------------------//-------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
